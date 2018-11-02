@@ -9,4 +9,4 @@ readme = "README.md"
 documentation = "https://docs.rs/rgl"
 
 [dependencies]
-gl = "0.6.0"
+gl = "0.10.0"
