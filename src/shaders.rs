@@ -8,8 +8,20 @@ use std::ptr;
 #[derive(Clone, Copy)]
 pub struct Shader(GLuint);
 
+impl From<Shader> for GLuint {
+    fn from(shader: Shader) -> GLuint {
+        shader.0
+    }
+}
+
 #[derive(Clone, Copy)]
 pub struct Program(GLuint);
+
+impl From<Program> for GLuint {
+    fn from(program: Program) -> GLuint {
+        program.0
+    }
+}
 
 #[derive(Clone, Copy)]
 pub struct UniformLocation(GLint);
