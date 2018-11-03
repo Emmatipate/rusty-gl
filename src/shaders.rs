@@ -104,6 +104,11 @@ pub fn delete_shader(shader: Shader) {
     }
 }
 
+pub fn get_attrib_location(program: Program, name: &str) -> GLint {
+    unsafe {
+        gl::GetAttribLocation(program.0, CString::new(name).unwrap().as_ptr())
+    }
+}
 
 ///Shader uniforms
 
