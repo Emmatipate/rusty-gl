@@ -26,6 +26,12 @@ impl From<Program> for GLuint {
 #[derive(Clone, Copy)]
 pub struct UniformLocation(GLint);
 
+impl From<UniformLocation> for GLint {
+    fn from(location: UniformLocation) -> GLint {
+        location.0
+    }
+}
+
 pub fn create_program() -> Program {
     unsafe { Program(gl::CreateProgram()) }
 }
@@ -276,12 +282,12 @@ pub fn uniform_matrix_2fv(location: UniformLocation, count: GLsizei, transpose: 
 
 pub fn uniform_matrix_3fv(location: UniformLocation, count: GLsizei, transpose: GLboolean, value: *const GLfloat) {
     unsafe {
-        gl::UniformMatrix2fv(location.0, count, transpose, value);
+        gl::UniformMatrix3fv(location.0, count, transpose, value);
     }
 }
 
 pub fn uniform_matrix_4fv(location: UniformLocation, count: GLsizei, transpose: GLboolean, value: *const GLfloat) {
     unsafe {
-        gl::UniformMatrix2fv(location.0, count, transpose, value);
+        gl::UniformMatrix4fv(location.0, count, transpose, value);
     }
 }
